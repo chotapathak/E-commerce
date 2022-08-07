@@ -1,0 +1,12 @@
+.tp{
+    background-color: grey;
+    width: 50%;
+    font-size: 29px;
+}
+.tp .name{
+    color: aliceblue;
+}
+.tp .img{
+    width: 50vh;
+    height: 50vh;
+}
