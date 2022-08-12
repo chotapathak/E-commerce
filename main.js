@@ -6,52 +6,52 @@ let product = [{
     price: '$6'
 },{
     img: './img/products/f2.jpg',
-    brand: 'Addidas',
-    name: 'Cartoon astronaut T-shirt',
+    brand: 'Hrx',
+    name: 'Astronaut T-shirt',
     rating: '******',
-    price: '$6'
+    price: '$4'
 },
 {
     img: './img/products/f3.jpg',
-    brand: 'Addidas',
-    name: 'Cartoon astronaut T-shirt',
+    brand: 'Hrx',
+    name: 'Bartoon  T-shirt',
     rating: '******',
-    price: '$6'
+    price: '$77'
 },
 {
     img: './img/products/f4.jpg',
     brand: 'Addidas',
-    name: 'Cartoon astronaut T-shirt',
+    name: 'Destronaut T-shirt',
     rating: '******',
-    price: '$6'
+    price: '$60'
 },
 {
     img: './img/products/f5.jpg',
-    brand: 'Addidas',
-    name: 'Cartoon astronaut T-shirt',
+    brand: 'Puma',
+    name: 'Eestronaut T-shirt',
     rating: '******',
-    price: '$6'
+    price: '$3'
 },
 {
     img: './img/products/f6.jpg',
-    brand: 'puma',
-    name: 'Cartoon astronaut T-shirt',
+    brand: 'Puma',
+    name: 'Fartoon  T-shirt',
     rating: '******',
-    price: '$6'
+    price: '$36'
 },
 {
     img: './img/products/f7.jpg',
-    brand: 'Addidas',
-    name: 'Cartoon astronaut T-shirt',
+    brand: 'Nike',
+    name: 'G-shirt',
     rating: '******',
-    price: '$6'
+    price: '$56'
 },
 {
     img: './img/products/f8.jpg',
-    brand: 'Addidas',
-    name: 'Cartoon astronaut T-shirt',
+    brand: 'Nike',
+    name: 'Hurt-shirt',
     rating: '******',
-    price: '$6'
+    price: '$86'
 }];
 
 let newProduct = [
@@ -87,9 +87,16 @@ let newProduct = [
 
 const container = document.querySelector('.pro-container');
 const newArrivals = document.querySelector('#new-items');
+// const searchInput = document.querySelector('.search-input');
+// const srchBtn = document.querySelector('.search-btn');
+const sortBy = document.querySelector('#sort-item');
+const filterBy = document.querySelector('#filter-item');
+// srchBtn.addEventListener('click', SearchFilter);
+sortBy.addEventListener('change', SortBy);
+filterBy.addEventListener('change', Filter);
+
 
 function createProducts(product){
-
     for(let i=0; i < product.length; i++){
         container.innerHTML += `
             <div class="pro">
@@ -138,14 +145,33 @@ function newItems(newProduct){
     }
 }
 newItems(newProduct);
-// function sortProductByName(){
-//     let newProduct = product.sort((a,b)=> a.brand > b.brand ? 1 : -1)
-//     container.innerHTML = ""
-//     createProducts(newProduct)
-// }
 
-// function filterByBrandName(name){
-//     const newProduct = product.filter((item)=> item.brand == name)
-//     container.innerHTML = ""
-//     createProducts(newProduct)
-// }
+
+function Filter(e){
+    let current = e.target.value;
+    let filtered = product.filter(item => item.brand.toLowerCase() == current.toLowerCase())
+    container.innerHTML = '';
+    createProducts(filtered);
+}
+
+function SortBy(e){
+    let current =  e.target.value;
+    if(current == 'by-name'){
+        let sortByName = product.sort((a,b) => a.name > b.name ? 1 : -1);
+        container.innerHTML = '';
+        createProducts(sortByName)
+    }
+    else if(current == 'by-brand'){
+        let sortedArr = product.sort((a,b) => {
+            return a.brand > b.brand  ? 1 : -1 })
+            container.innerHTML = ""
+            createProducts(sortedArr);
+            console.log(sortedArr);
+    }
+    else if(current == 'by-price'){
+        let sortedByPrice = product.sort((a,b) => a.price.split('$')[1] - b.price.split('$')[1]);
+        container.innerHTML = '';
+        createProducts(sortedByPrice);
+    }
+    
+}

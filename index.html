@@ -17,6 +17,8 @@
         <a href="#"><img src="https://dcassetcdn.com/design_img/3682500/167508/21623190/ap1c6q7crvf8gbd44jvd68144m_image.png" alt="" class="logo" style="height: 50px;width: 50px"></a>
         <div>
             <ul id="navbar">
+                <input type="text" placeholder="Search products" class="search-input">
+                <button class="search-btn"><i class="fas fa-search "> </i></button>
                 <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="index.html">Shop</a></li>
                 <li><a href="index.html">Blog</a></li>
@@ -32,7 +34,7 @@
         <h2>Super value deal</h2>
         <h1>On all products</h1>
         <p>Save more with coupons and upto 70% off!</p>
-        <button>Shop Now</button>
+        <button class="shop-now">Shop Now</button>
     </section>
 
     <section id="features" class="section-p1">
@@ -65,7 +67,27 @@
     <section id="products" class="section-p1">
         <h2>Features products</h2>
         <p>Summer collection new moder design</p>
-        <div class="pro-container">
+        <div class="manage-item">           
+            <div class="filter">
+                Filter by brand
+                <select name="items" id="filter-item">
+                    <option value="addidas" class="by-addidas">Addidas</option>
+                    <option value="puma" class="by-puma">Puma</option>
+                    <option value="nike" class="by-nike">Nike</option>
+                    <option value="hrx" class="by-hrx">Hrx</option>
+                </select>
+            </div>
+            <div class="sort">
+                Sort
+                <select name="items" id="sort-item">
+                    <option value="by-name" class="sort-name">By name</option>
+                    <option value="by-brand" class="sort-brand">By Brand</option>
+                    <option value="by-price">By Price</option>
+                    <option value="by-date">By Date</option>
+                </select>
+            </div>
+        </div>
+            <div class="pro-container">
            <!--  item is created from using Json and Dom in main.js  -->
 
         </div>
@@ -81,7 +103,7 @@
         <h2>New Arrivals</h2>
         <p>Summer collection new moder design</p>
         <div id="new-items" class="pro-container">
-          
+          <!--  new-item is created from using Json and Dom in main.js  -->
 
         </div>
     </section>
