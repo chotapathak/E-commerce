@@ -3,20 +3,23 @@ let product = [{
     brand: 'Addidas',
     name: 'Cartoon astronaut T-shirt',
     rating: '******',
-    price: '$6'
+    price: '$6',
+    categories: 'shirt'
 },{
     img: './img/products/f2.jpg',
     brand: 'Hrx',
     name: 'Astronaut T-shirt',
     rating: '******',
-    price: '$4'
+    price: '$4',
+    categories: 'shirt'
 },
 {
     img: './img/products/f3.jpg',
     brand: 'Hrx',
     name: 'Bartoon  T-shirt',
     rating: '******',
-    price: '$77'
+    price: '$77',
+    categories: 'shirt'
 },
 {
     img: './img/products/f4.jpg',
@@ -42,16 +45,18 @@ let product = [{
 {
     img: './img/products/f7.jpg',
     brand: 'Nike',
-    name: 'G-shirt',
+    name: 'Trouser',
     rating: '******',
-    price: '$56'
+    price: '$56',
+    categories: 'trouser'
 },
 {
     img: './img/products/f8.jpg',
     brand: 'Nike',
-    name: 'Hurt-shirt',
+    name: 'Froun',
     rating: '******',
-    price: '$86'
+    price: '$86',
+    categories: 'top-shirt'
 }];
 
 let newProduct = [
@@ -87,11 +92,12 @@ let newProduct = [
 
 const container = document.querySelector('.pro-container');
 const newArrivals = document.querySelector('#new-items');
-// const searchInput = document.querySelector('.search-input');
-// const srchBtn = document.querySelector('.search-btn');
+let searchInput = document.querySelector('.search-input');
+const srchBtn = document.querySelector('.search-btn');
 const sortBy = document.querySelector('#sort-item');
 const filterBy = document.querySelector('#filter-item');
-// srchBtn.addEventListener('click', SearchFilter);
+
+srchBtn.addEventListener('click', Search);
 sortBy.addEventListener('change', SortBy);
 filterBy.addEventListener('change', Filter);
 
@@ -174,4 +180,12 @@ function SortBy(e){
         createProducts(sortedByPrice);
     }
     
+}
+
+
+function Search(e){
+    let current = searchInput.value;
+    let filtered = product.filter(item => item.categories == current);
+    container.innerHTML = '';
+    createProducts(filtered);
 }
