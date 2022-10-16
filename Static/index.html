@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css">
+    <title>E Commerce</title>
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="https://dcassetcdn.com/design_img/3682500/167508/21623190/ap1c6q7crvf8gbd44jvd68144m_image.png" alt="" class="logo" style="height: 50px;width: 50px"></a>
+        <div>
+            <ul id="navbar">
+                <input type="text" placeholder="Search products" class="search-input">
+                <button class="search-btn"><i class="fas fa-search "> </i></button>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="index.html">Shop</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="index.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deal</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons and upto 70% off!</p>
+        <button class="shop-now">Shop Now</button>
+    </section>
+
+    <section id="features" class="section-p1">
+        <div class="fe-box">
+            <img src="./img/features/f1.png" alt="">
+            <h6>Free Shipping</h6> 
+        </div>
+        <div class="fe-box">
+            <img src="./img/features/f2.png" alt="">
+            <h6>Online Order</h6> 
+        </div>
+        <div class="fe-box">
+            <img src="./img/features/f3.png" alt="">
+            <h6>Save Money</h6> 
+        </div>
+        <div class="fe-box">
+            <img src="./img/features/f4.png" alt="">
+            <h6>Promotion</h6> 
+        </div>
+        <div class="fe-box">
+            <img src="./img/features/f5.png" alt="">
+            <h6>Happy Sale</h6> 
+        </div>
+        <div class="fe-box">
+            <img src="./img/features/f6.png" alt="">
+            <h6>F24/7 Support</h6> 
+        </div>
+    </section>
+
+    <section id="products" class="section-p1">
+        <h2>Features products</h2>
+        <p>Summer collection new moder design</p>
+        <div class="manage-item">           
+            <div class="filter">
+                Filter by brand
+                <select name="items" id="filter-item">
+                    <option value="addidas" class="by-addidas">Addidas</option>
+                    <option value="puma" class="by-puma">Puma</option>
+                    <option value="nike" class="by-nike">Nike</option>
+                    <option value="hrx" class="by-hrx">Hrx</option>
+                </select>
+            </div>
+            <div class="sort">
+                Sort
+                <select name="items" id="sort-item">
+                    <option value="by-name" class="sort-name">By name</option>
+                    <option value="by-brand" class="sort-brand">By Brand</option>
+                    <option value="by-price">By Price</option>
+                    <option value="by-date">By Date</option>
+                </select>
+            </div>
+        </div>
+            <div class="pro-container">
+           <!--  item is created from using Json and Dom in main.js  -->
+
+        </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+        <h4>Repair service</h4>
+        <h2>Up to <span> 70% off </span> - All T-shirt and accessories</h2>
+        <button class="normal">Explore more</button>
+    </section>
+
+    <section id="products" class="section-p1">
+        <h2>New Arrivals</h2>
+        <p>Summer collection new moder design</p>
+        <div id="new-items" class="pro-container">
+          <!--  new-item is created from using Json and Dom in main.js  -->
+
+        </div>
+    </section>
+</body>
+<script src="./main.js "></script>
+</html>
