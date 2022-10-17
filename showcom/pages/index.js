@@ -3,25 +3,49 @@
 // import styles from '../styles/Home.module.css'
 // import MyApp from './_app'
 import React from 'react'
-import {Footer,Cart,Layout,Banner,NavBar,HeroBanner, Product , FooterBanner} from '../components'
+import {HeroBanner, Product , FooterBanner} from '../components'
+import { client } from '../lib/client'
 
-const Home = () => {
+// It getting data from async function getServerSide and getting props to populate
+const Home = ({products, bannerData}) => {
   return (
-    <>
-    <HeroBanner/>
+    <div>
+    <HeroBanner heroBanner={bannerData.length && bannerData[0]}/>
+    {/* {console.log(bannerData[0])} */}
     <div className='products-heading'>
       <h2>Best Selling products</h2>
       <p>Speaker of many variations</p>
     </div>
-    
+
+     {/* mapping product by name  */}
     <div className='products-container'>
-      {['Product 1', 'Product 2'].map(
-        (product) =>   product)}
+      { products?.map(
+          (product) =>   <Product key={product.id} product={product} />)
+      }
 
     </div>
-    <Footer/>
-    </>
+    <FooterBanner  footerBanner={bannerData && bannerData[0]}/>
+    </div>
   )
 }
 
+// async function
+export const getServerSideProps = async () => {
+
+  // filtering items we need to download
+  // type is fixed [products] AND product is users query
+  const query = '*[_type == "product"]';
+  // fetched query data from client server in lib folder
+  // to communicate with our sanity backend
+  const products = await client.fetch(query);
+
+  // banner data
+  const bannerQuery = '*[_type == "banner"]';
+  const bannerData = await client.fetch(bannerQuery);
+
+  // return products and bannerData as props
+  return {
+    props: {products, bannerData}
+  }
+}
 export default Home
