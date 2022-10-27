@@ -1,9 +1,6 @@
 import React from 'react'
-import Link from 'next/link'
 import { AiFillInstagram, AiOutlineTwitter} from 'react-icons/ai'
-import { urlFor } from '../lib/client';
 
-// destructuring
 const Footer = () => {
   return (
     <div className='footer-container'>
@@ -12,10 +9,10 @@ const Footer = () => {
     <AiFillInstagram/>
     <AiOutlineTwitter/>
      </p>
-
     </div>
 
   )
 }
 
 export default Footer
+
